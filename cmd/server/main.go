@@ -12,7 +12,7 @@ func main() {
 
 	// Health check endpoint
 	r.GET("/health", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"status": "ok"})
+		c.JSON(http.StatusOK, gin.H{"status": "ok", "message": "Hello from go server :)"})
 	})
 
 	log.Println("Server starting on :8080")
