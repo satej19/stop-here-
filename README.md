@@ -1,4 +1,4 @@
-# AI Gateway — Distributed Rate Limiter
+#  — Distributed Rate Limiter
 
 A beginner-friendly Go project for building a distributed rate limiter from scratch.
 
