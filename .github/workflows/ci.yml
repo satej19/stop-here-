@@ -1,0 +1,45 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - "**"
+
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  ci:
+    # Run for normal pushes, but NOT for a merged PR event
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        run: echo "Running tests..."
+
+      - name: Run lint
+        run: echo "Running lint..."
+
+  cd:
+    # Run ONLY when PR is actually merged into main
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: echo "Building application..."
+
+      - name: Deploy
+        run: echo "Deploying application..."s
