@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	// Load configuration from environment variables (with defaults).
+	// Load configuration from envirosnment variables (with defaults).
 	cfg := config.Load()
 
 	// Create the in-memory rate limiter using config values.
@@ -29,7 +29,7 @@ func main() {
 	// Sample rate-limited endpoint.
 	r.GET("/api/data", h.LimitedEndpoint)
 
-	// Start the server.
+	// Start the server
 	log.Printf("Server starting on :%s", cfg.Port)
 	r.Run(":" + cfg.Port)
 }
